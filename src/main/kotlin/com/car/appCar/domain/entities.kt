@@ -1,10 +1,12 @@
 package com.car.appCar.domain
 
+import com.car.appCar.helper.TravelRequestStatus
 import jakarta.persistence.Entity
 import jakarta.persistence.GeneratedValue
-import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
+import jakarta.persistence.ManyToOne
 import java.time.LocalDate
+import java.time.LocalDateTime
 
 @Entity
 data class Driver(
@@ -15,10 +17,40 @@ data class Driver(
 
     val name: String,
 
-    val birthDate: LocalDate,
+    val birthDate: LocalDate
 )
 
-class PatchDriver(
+@Entity
+data class Passenger(
+
+    @Id
+    @GeneratedValue
+    var id: Long? = null,
+
+    val name: String
+)
+
+@Entity
+data class TravelRequest(
+    @Id
+    @GeneratedValue
+    var id: Long? = null,
+
+    @ManyToOne
+    val passenger: Passenger,
+
+    val origin: String,
+    val destination: String,
+
+    val status: TravelRequestStatus = TravelRequestStatus.CREATED, val creationDate: LocalDateTime = LocalDateTime.now()
+
+)
+
+data class PatchDriver(
     val name: String?,
     val birthDate: LocalDate?
+)
+
+data class PatchPassenger(
+    val name: String?
 )

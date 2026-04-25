@@ -45,8 +45,8 @@ class DriverAPI(val driverRepository: DriverRepository) {
     fun incrementalUpdateDriver(@PathVariable("id") id: Long, @RequestBody driver: PatchDriver): Driver {
         val foundDriver = findDriver(id)
         val copyDriver = foundDriver.copy(
-            birthDate = driver.birthDate ?:foundDriver.birthDate,
-            name = driver.name ?:foundDriver.name,
+            birthDate = driver.birthDate ?: foundDriver.birthDate,
+            name = driver.name ?: foundDriver.name,
         )
 
         return driverRepository.save(copyDriver)
