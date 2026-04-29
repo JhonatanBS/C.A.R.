@@ -1,6 +1,5 @@
 package com.car.appCar.helper
 
-import com.car.appCar.domain.Passenger
 import java.time.LocalDateTime
 
 data class TravelRequestOutput(
@@ -9,4 +8,4 @@ data class TravelRequestOutput(
     val destination: String,
     val status: TravelRequestStatus,
     val creationDate: LocalDateTime
-    )
+)

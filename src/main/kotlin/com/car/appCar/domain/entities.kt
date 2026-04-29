@@ -42,7 +42,8 @@ data class TravelRequest(
     val origin: String,
     val destination: String,
 
-    val status: TravelRequestStatus = TravelRequestStatus.CREATED, val creationDate: LocalDateTime = LocalDateTime.now()
+    val status: TravelRequestStatus = TravelRequestStatus.CREATED,
+    val creationDate: LocalDateTime = LocalDateTime.now()
 
 )
 

@@ -6,4 +6,4 @@ interface DriverRepository : JpaRepository<Driver,Long>
 
 interface PassengerRepository : JpaRepository<Passenger,Long>
 
-public interface TravelRequestRepository: JpaRepository<TravelRequest, Long> {}
+interface TravelRequestRepository: JpaRepository<TravelRequest, Long>
